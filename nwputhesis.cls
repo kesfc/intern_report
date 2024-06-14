@@ -27,7 +27,7 @@
 \setlength{\headheight}{27pt}
 \setlength{\headsep}{7pt}
 \renewcommand{\headrulewidth}{1pt} %线宽
-\chead{\includegraphics[scale=0.15]{./picture/nwpuheader.png}}
+\chead{\includegraphics[scale=0.15]{./picture/1.png}}
 \rhead{}
 \lhead{}
 \fancypagestyle{cover}{
@@ -156,34 +156,20 @@
 }
 \def\maketitle{
     \pagestyle{cover}
-    \begin{figure}[h!]
-        \centering
-        \vspace{2.30cm} %设置与上面正文的距离`
-        %\setlength{\abovecaptionskip}{0.0cm}   
-        %\setlength{\belowcaptionskip}{0.0cm} 
-        \includegraphics[width=10cm]{picture/nwpulogo.png}
-        \vspace{1.30cm}
-    \end{figure}
     \begin{center}
-        {\fontsize{42.1575pt}{1.25}\textbf{本科毕业设计（论文）}}
+        {\fontsize{42.1575pt}{1.25}\textbf{实习总结}}
     \end{center}
 
     \begin{center}
         \vspace{3.5cm}
         \fontsize{20pt}{\baselineskip}\selectfont
-        {\fontsize{16.0600pt}{1.25}\blackti 题目：\underline{ \textcolor{white}{111111}论文题目 \textcolor{white}{111111}}}
+        {\fontsize{20pt}{1.25}\textbf{李伟豪}}
         \vspace{1.5cm}
 
-        {\fontsize{14.0525pt}{1.25} 专业名称\underline{ \textcolor{white}{11111} 名\quad 称\textcolor{white}{111111}}}
+        {\fontsize{20pt}{1.25}\textbf{北京星天地信息科技有限公司}}
         \vspace{1.5cm}
 
-        {\fontsize{14.0525pt}{1.25} 学生姓名\underline{ \textcolor{white}{11111}姓\quad 名\textcolor{white}{111111}}}
-        \vspace{1.5cm}
-
-        {\fontsize{14.0525pt}{1.25} 指导教师\underline{ \textcolor{white}{11111}姓\quad 名\textcolor{white}{111111}}}
-        \vspace{1.5cm}
-
-        {\fontsize{14.0525pt}{1.25} 毕业时间\underline{ \textcolor{white}{1111}{\large 2023}年{\large 7}月\textcolor{white}{,,111}}}
+        {\fontsize{14.0525pt}{1.25} 2024/05/28 - 2024/07/31}
         % {\fontsize{20pt}{1.25} 专业名称\underline{ \textcolor{white}{11111111} \textcolor{white}{11111111}}}
         \vspace{1.5cm}
     \end{center}}

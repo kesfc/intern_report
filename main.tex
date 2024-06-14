@@ -8,29 +8,6 @@
 \maketitle
 
 \newpage
-% 中文摘要页
-\makeabstract
-
-听觉虚拟又可称为可听化，是近年来随着声学仿真技术的发展而出现的新概
-念，即通过对包含单个（或多个）声源的声场进行物理或数学建模，以达到模拟
-空间听音效果的目的。若考虑双耳效应，则可称为双耳听觉虚拟（Binaural
-Modeling）。
-
-……
-
-\myspace{1}% 空一行
-\noindent { \blackti 关键词:}听觉虚拟，HRTF，神经网络
-
-% 英文摘要页
-\makeEnabstract
-
-Virtual auditory technology is also called auralization. It is brought forward as a new concept with the development of acoustic simulation techniques in recent years and can be implemented by establishing the physical or mathematical models of a sound field to achieve sound effects simulation. If we consider the binaural effect, it can be called binaural virtual auditory.
-
-……
-
-\myspace{1}
-\noindent \textbf{ KEY WORDS：}virtual auditory, HRTF, neural network
-
 % 目录
 \makecontent
 \iffalse
@@ -40,11 +17,15 @@ Virtual auditory technology is also called auralization. It is brought forward a
 % 正文
 \maketext
 
-\section{绪论}
-\subsection{可听化技术概述}
-\subsubsection{可听化的概念}
-
-可听化（Auralization）是近年来随着声学仿真技术的长足发展而出现的新概念\cite{Xu_2023_ICCV} \cite{li2021learning}，它的具体含义是通过对一包含单个（或者多个）声源的声场进行物理或数学建模，以达到声音绘制（Audio rendering）或称声学仿真（Acoustical simulation）的目的。这样，人们可以获得该声场中任意位置的双耳听觉感受。换句话说，可听化技术在客观上主要是模拟特定声场（包括声源、声传播环境以及聆听者三要素）中声音传播的物理过程，从而使其中的聆听者作为一个主体能够获得对整个场景声学特性的主观感知
+\section{实习目标}
+\subsection{学习方向及目标}
+学习现在先进的计算机视觉（Computer Vision）以及图形学与AI结合的模型如Neural Radiance Fields（神经辐射场，简称NeRF），3D Gaussian Splatting(3D高斯溅射，简称3dgs)，以及YOLO（全称You Only Look Once），同时理解各个模型的实现原理。
+\subsection{期望}
+\begin{itemize}
+    \item 完成搭建尽可能多的AI模型，配置其环境，并完成训练其预设数据库。
+    \item 学习并理解各个模型的实现原理。
+    \item 自己制作数据并通过基于AI的三维重建制作模型。
+\end{itemize}
 \makespace
 \section{信号模型}
 \subsection{公式}
