@@ -27,123 +27,46 @@
     \item 自己制作数据并通过基于AI的三维重建制作模型。
 \end{itemize}
 \makespace
-\section{信号模型}
-\subsection{公式}
-\subsubsection{简单公式}
-\begin{equation}
-    \int_a^b f(x)\mathrm{d}x=F(b)-F(a)
-\end{equation}
+\section{模型的搭建以及学习}
+\subsection{Yolo V5}
+\subsubsection{模型简介}
+Yolo(You Only Look Once)是一种单阶段目标检测算法，即仅需要 “看” 一次就可以识别出图片中物体的class类别和边界框。Yolov5是由Alexey Bochkovskiy等人在YOLO系列算法的基础上进行改进和优化而开发的，使其性能与精度都得到了极大的提升。
+\subsubsection{模型环境配置}
+\begin{itemize}
+    \item Python = 3.8.19
+    \item torch = 2.3
+    \item torchvision = 0.18.0
+    \item gitpython = 2.40.1
+    \item opencv-python = 4.9.0.80
+    \item matplotlib = 3.7.5
+    \item pandas = 2.0.3
+\end{itemize}
+模型从\underline{https://github.com/ultralytics/yolov5.git}克隆下来，然后在本地进行配置。
 
-\subsubsection{多行公式}
-如公式(\ref{q1})所示。
-\begin{equation}
-    \label{q1}
-    \begin{aligned}
-        dx      & =v_{x}dt  \\
-        dy      & =v_{y}dt  \\
-        x_{t+1} & =dx+x_{t} \\
-        y_{t+1} & =dx+y_{t}
-    \end{aligned}
-\end{equation}
-
-\subsubsection{括号公式}
-如公式(\ref{q1})所示。
-\begin{equation}
-    \left\{
-    \begin{aligned}
-        100(t-kT_{2}) & , & t\in (kT_{2}, kT_{2}+0.2 )    \\
-        20            & , & t\in (kT_{2}+0.2,kT_{2}+2.2)  \\
-        -100t+240     & , & t\in( kT_{2}+2.2, kT_{2}+2.4) \\
-        0             & , & t\in (kT_{2}+2.4,(k+1)T_{2})
-    \end{aligned}
-    \right.
-\end{equation}
-
-\subsection{表格}
-\subsubsection{简单表格}
-如表\ref{table1}所示。
-
-\begin{table}[H]
-    \fontsize{10.5bp}{1.25}
-    \caption{表格标题}
-    % \setlength{\abovecaptionskip}{0.2cm}  %调整标题与图距离
-    % \setlength{\belowcaptionskip}{0.2cm} %调整标题与下文距离
-    \centering\label{table1}
-    % \vspace{-0.5em}	
-    \begin{tabular}{|c|c|c|c|}
-        \hline % \toprule[1.5pt]
-        方法       & A算法 & B算法 & C算法 \\ \hline
-        误差/dB    & 0.86  & 1.02  & 0.69  \\ \hline
-        计算时间/s & 25    & 25    & 27    \\ \hline
-    \end{tabular}
-\end{table}
-
-\subsubsection{三线表}
-三线表参考表\ref{table3}
-\begin{table}[H]
-    \fontsize{10.5bp}{1.25}
-    \caption{表格标题}
-    % \setlength{\abovecaptionskip}{0.2cm}  %调整标题与图距离
-    % \setlength{\belowcaptionskip}{0.2cm} %调整标题与下文距离
-    \centering\label{table3}
-    % \vspace{-0.5em}	
-    \begin{tabular}{cccc}
-        \toprule[1.5pt]
-        方法       & A算法 & B算法 & C算法 \\
-        \toprule[1.5pt]
-        误差/dB    & 0.86  & 1.02  & 0.69  \\
-        计算时间/s & 25    & 25    & 27    \\
-        \toprule[1.5pt]
-    \end{tabular}
-\end{table}
-
-\subsubsection{精排表格}
-较为复杂的表格参考表\ref{table2}
-\begin{table}[H]
-    \caption{表格标题}
-    % \setlength{\abovecaptionskip}{0.2cm}  %调整标题与图距离
-    % \setlength{\belowcaptionskip}{-0.2cm} %调整标题与下文距离
-    \fontsize{10.5bp}{1.25}
-    \centering\label{table2}
-    % \vspace{-0.5em}	
-    \begin{tabular}{|c|c|c|c|}
-        \hline % \toprule[1.5pt]
-        \makecell*[c]{ Parameter Group     \\ Condition Selection } &\makecell*[c]{ Basic Ways \\of Hatching  } 	& \makecell*[c]{Calculated Average\\ Alapsed Time} & \makecell*[c]{Calculated Average\\ Alapsed Time}  \\
-        \hline
-        \makecell*[c]{ Parameter group (1) \\ \\Parameter group (2)\\} &\makecell*[c]{ Zigzag   Hatch\\Contour Hatch\\Zigzag   Hatch\\Contour Hatch}& \makecell*[c]{468.940\\374.923 \\885.792\\1947.77}   & \makecell*[c]{Zigzag 1.888 \\ Contour  5.195   }   \\
-        \hline
-        \makecell*[c]{ Parameter group (1) \\ \\ Parameter group (2)\\}  &\makecell*[c]{ Zigzag   Hatch\\Contour Hatch\\Zigzag   Hatch\\Contour Hatch}&\makecell*[c]{ 545.080\\356.847\\1068.275\\1692.098} & \makecell*[c]{Zigzag 1.960 \\ Contour 4.742  }  \\
-        \hline
-    \end{tabular}
-    % \vspace{-1.5em}
-\end{table}
-
-\subsection{图片}
-\subsubsection{单个图片}
-单图如图\ref{P1}所示。
-\begin{figure}[!ht]
+\subsubsection{模型训练}
+模型训练是在\underline{train.py}文件中进行的，训练时可以同时输入data\footnote{文件中包含了训练集和验证集的路径，以及所有的标注种类}、cfg\footnote{文件中包含了模型的参数，如学习率、batch size等}和weight\footnote{文件中包含了预训练模型的权重}文件；或是epochs\footnote{训练的次数}和batch size\footnote{每次训练的图片数量}。
+\\
+如下图：
+\begin{figure}[H]
     \centering
-    %\vspace{-0.30cm} %设置与上面正文的距离`
-    %\setlength{\abovecaptionskip}{0.0cm}   %调整图片标题与图距离`
-    %\setlength{\belowcaptionskip}{0.0cm} %调整图片标题与下文距离
-    \includegraphics[width=4cm]{./picture/test.png}
-    \caption{图片标题}\label{P1}
+    \includegraphics[width=0.8\textwidth]{picture/2.png}
+    \caption{YOLOv5目标检测模型的训练命令}
 \end{figure}
-\subsubsection{子图}
-多子图如图\ref{P2}、\ref{P2.1}、\ref{P2.2}所示。
-\begin{figure}[h!]
+\subsubsection{测试自己制作的数据集}
+从网上找寻了30张宝可梦的图片，然后通过labelImg工具标注这些图片中比较常见的宝可梦，如皮卡丘、杰尼龟等，然后将这些图片和标注文件放入到一个文件夹中。最后通过YOLOv5模型进行训练，得到了一个可以识别这些宝可梦的模型，因为数据集比较小，所以模型的识别率不是很高。
+\\
+训练结果示例：
+\begin{figure}[H]
     \centering
-    \begin{subfigure}[b]{0.25\linewidth}
-        \includegraphics[width=\linewidth]{picture/test.png}
-        \caption{图片标题1}\label{P2.1}
-    \end{subfigure}
-    \begin{subfigure}[b]{0.25\linewidth}
-        \includegraphics[width=\linewidth]{picture/test.png}
-        \caption{图片标题2}\label{P2.2}
-    \end{subfigure}
-    \caption{总标题}
-    \label{P2}
+    \includegraphics[width=0.8\textwidth]{picture/3.png}
+    \caption{YOLOv5目标检测模型的训练结果}
 \end{figure}
+\subsubsection{实现原理}
+YOLOv5首先会在输入端中将输入图片进行预处理，图像大小调整为模型所需的大小，进行归一化操作，及将像素值缩放到0到1之间。\\
+然后将图片输入到backbone网络\footnote{backbone网络是一个特征提取网络，用于提取图片的特征}中，backbone网络会将图片的特征提取出来，然后将这些特征输入到neck网络\footnote{neck网络是一个特征融合网络，用于将不同层次的特征进行融合}中，neck网络会将不同层次的特征进行融合，然后将这些特征输入到head网络\footnote{head网络是一个预测网络，用于预测图片中的物体}中，head网络会将图片中的物体进行预测，得到物体的类别和边界框。
+\\
+
+
 \makespace
 \section{英文标题Test}
 \subsection{英文标题Test}
