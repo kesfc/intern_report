@@ -2,6 +2,7 @@
 \documentclass{nwputhesis}
 \usepackage{gbt7714}
 \usepackage{fancyhdr}
+\usepackage{hyperref}
 \begin{document}
 
 % 生成封面, 使用\maketitle 
@@ -94,15 +95,28 @@ NeRF（Neural Radiance Fields）是一种用于三维重建的深度学习模型
     \item imageio = 2.193
     \item configargparse = 1.4
 \end{itemize}
-于CUDA 12.x 基础下:
-\begin{itemize}
-    \item Python = 3.7.1
-\end{itemize}
 模型从\underline{https://github.com/bmild/nerf.git}克隆下来，然后在本地进行配置。
 
 \subsubsection{模型训练}
 \indent 模型训练是在\underline{run\_nerf.py}文件中进行的，需要同时输入配置文件的的相对路径，配置文件中包含了实验名称（expname），基础目录（basedir），数据集路径（datadir），数据集类型（dataset\_type）采样参数、使用视角方向信息等模型训练和数据配置信息。
+
+\subsubsection{训练结果}
+先在730显卡的电脑上配置环境并尝试训练，但因预计训练结束时间要20左右，后改为在3080显卡的电脑上
+重新配置环境。在重新配置环境时遇到一些版本冲突的问题，因为3080显卡的电脑上的CUDA版本是12.3，
+不能与原配置的tensorflow版本1.14.0兼容，所以需要重新配置环境。最后在3080显卡的电脑上重新配置
+环境并训练，但最后的预计训练结束时间人在一天左右，所以在github上找到了另外一个模型
+NeRF Pytorch（详情见\hyperref[subsection:NeRF Pytorch]{2.3 NeRF Pytorch}）。
 \makespace
+\subsubsection{实现原理}
+简单一点理解可以把NeRF看作是深度全连接神经网络（deep fully-connected neural network）\footnote{通常被称为多层感知机（multilayer 
+perceptron）或MLP，没有卷积层（convolutional layers），由全连接层（fully connected layer）和激活函数（activation function）组成}。
+NeRF将静态的场景用5D函数来表示，即每个空间点$(x,y,z)$和方向$(\theta\footnote{极角（Polar Angle）,通常的取值范围是0到π之间，
+通常表示从参考方向（通常是参考坐标系的正方向）到目标向量（或目标位置）的角度。}, \phi\footnote{方位角（Azimuthal Angle）,
+通常的取值范围是0到2π之间，通常表示目标向量在参考平面上的投影与参考方向的夹角。})$都对应一个颜色和密度。NeRF的输入是一个射线，
+输出是射线上每个点的颜色（RGB）和密度。
+\makespace
+
+\subsection{NeRF Pytorch}
 \section*{致谢}
 \begin{center}
     { \blackti \fontsize{16.0600pt}{1.25}致 \, 谢}
