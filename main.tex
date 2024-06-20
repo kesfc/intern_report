@@ -108,12 +108,51 @@ NeRF（Neural Radiance Fields）是一种用于三维重建的深度学习模型
 NeRF Pytorch（详情见\hyperref[subsection:NeRF Pytorch]{2.3 NeRF Pytorch}）。
 \makespace
 \subsubsection{实现原理}
-简单一点理解可以把NeRF看作是深度全连接神经网络（deep fully-connected neural network）\footnote{通常被称为多层感知机（multilayer 
-perceptron）或MLP，没有卷积层（convolutional layers），由全连接层（fully connected layer）和激活函数（activation function）组成}。
-NeRF将静态的场景用5D函数来表示，即每个空间点$(x,y,z)$和方向$(\theta\footnote{极角（Polar Angle）,通常的取值范围是0到π之间，
-通常表示从参考方向（通常是参考坐标系的正方向）到目标向量（或目标位置）的角度。}, \phi\footnote{方位角（Azimuthal Angle）,
-通常的取值范围是0到2π之间，通常表示目标向量在参考平面上的投影与参考方向的夹角。})$都对应一个颜色和密度。NeRF的输入是一个射线，
-输出是射线上每个点的颜色（RGB）和密度。
+简单一点理解可以把NeRF看作是先用深度全连接神经网络（deep fully-connected neural network）\footnote{通常被称为多层感知机（
+multilayer perceptron）或MLP，没有卷积层（convolutional layers），由全连接层（fully connected layer）和激活函数（activation 
+function）组成}去学习并训练一个静态3D场景，实现复杂场景的任意新视角合成（渲染）。NeRF的核心思想是将静态场景表示为5D函数，即每个空间点
+x$(x,y,z)$和方向d$(\theta\footnote{极角（Polar Angle）,通常的取值范围是0到π之间，通常表示从参考方向（通常是参考坐标系的正方向）
+到目标向量（或目标位置）的角度，简单一点可以理解为与z轴的夹角}, \phi\footnote{方位角（Azimuthal Angle）,通常的取值范围是0到2π之间，
+通常表示目标向量在参考平面上投影与参考方向的夹角，简单一点可以理解为在xy平面上与x轴的夹角})$都对应一个颜色（RGB）和密度$(\sigma)$。
+NeRF的输入是一条被5D函数代表的射线，输出是射线上每个点的颜色和密度。其中方向d$(\theta,\phi)$，在进入模型前将先会被展开成三维笛卡尔坐
+标(3D Cartesian)系下的单位向量\(\vec{u}\)。这种单位向量可以用来表示一个方向,它有着确定的$x,y,z$三个分量,记为$(ux, uy, uz)$。由于是
+单位向量,所以这三个分量要满足(公式2.1)：
+\begin{equation}
+    \begin{aligned}
+        u_x^2 + u_y^2 + u_z^2 = 1
+        \captionsetup{labelformat=default}
+    \end{aligned}
+\end{equation}
+$(ux, uy, uz)$具体的计算公式如下（公式2-2）：
+\begin{equation}
+    \begin{aligned}
+        u_x &= \sin(\theta)\cos(\phi)\\
+        u_y &= \sin(\theta)\sin(\phi)\\
+        u_z &= \cos(\theta)
+    \end{aligned}
+\end{equation}
+\indent
+在进入模型前, 通常还会先将$(x,y,z)$和$(ux, uy, uz)$通过位置编码(positional encoding)\footnote{位置编码是一种将空间位置信息映射到
+更高维的空间中的技术,它可以帮助模型更好地理解空间位置信息,从而提高模型的性能。}映射到更高维的周期性函数空间\footnote{周期性函数空间是
+指由周期函数构成的函数空间。一个周期性函数$f(x)$是指满足$f(x+T) = f(x)$的函数,其中$T$是一个常数,称为周期。}中,以增加模型的表达能力。
+对$(x,y,z)$转换公式示例如下（公式2-3）：
+\begin{equation}
+    \begin{aligned}
+        \text{PE}(x) &= (\sin(2^0\pi x), \cos(2^0\pi x), \sin(2^1\pi x), \cos(2^1\pi x), \cdots, \sin(2^{N-1}\pi x), \cos(2^{N-1}\pi x))\endline
+        \text{PE}(y) &= (\sin(2^0\pi y), \cos(2^0\pi y), \sin(2^1\pi y), \cos(2^1\pi y), \cdots, \sin(2^{N-1}\pi y), \cos(2^{N-1}\pi y))\endline
+        \text{PE}(z) &= (\sin(2^0\pi z), \cos(2^0\pi z), \sin(2^1\pi z), \cos(2^1\pi z), \cdots, \sin(2^{N-1}\pi z), \cos(2^{N-1}\pi z))\endline
+    \end{aligned}
+\end{equation}
+\indent
+及将一个一维向量$x$映射到一个$2N$维的向量，实际使用时除了上述公式中的$2N$维向量外，还会加上一个维度为1的向量和本身的向
+量进行拼接成为$2N+2$维的向量，如下图（公式2-4）：
+\begin{equation}
+    \begin{aligned}
+        \text{PE}(x) &= (0, x, \sin(2^0\pi x), \cos(2^0\pi x), \sin(2^1\pi x), \cos(2^1\pi x), \cdots, \sin(2^{N-1}\pi x), \cos(2^{N-1}\pi x))\endline
+        \text{PE}(y) &= (0, y, \sin(2^0\pi y), \cos(2^0\pi y), \sin(2^1\pi y), \cos(2^1\pi y), \cdots, \sin(2^{N-1}\pi y), \cos(2^{N-1}\pi y))\endline
+        \text{PE}(z) &= (0, z, \sin(2^0\pi z), \cos(2^0\pi z), \sin(2^1\pi z), \cos(2^1\pi z), \cdots, \sin(2^{N-1}\pi z), \cos(2^{N-1}\pi z))\endline
+    \end{aligned}
+\end{equation}
 \makespace
 
 \subsection{NeRF Pytorch}
@@ -137,12 +176,15 @@ NeRF将静态的场景用5D函数来表示，即每个空间点$(x,y,z)$和方�
 
 % 附录
 \makespace
-\section*{附录}
+\section*{文献}
 \begin{center}
-    { \blackti \fontsize{16.0600pt}{1.25}附 \, 录}
+    { \blackti \fontsize{16.0600pt}{1.25}文 \, 献}
 \end{center}
-\addcontentsline{toc}{section}{附\texorpdfstring{ \, }{} 录}
+\addcontentsline{toc}{section}{文\texorpdfstring{ \, }{} 献}
 \myspace{1}
-附录内容。
+\noindent
+Mildenhall, B., Srinivasan, P. P., Tancik, M., Barron, J. T., Ramamoorthi, R., \& Ng, R. (2020). NeRF: 
+Representing Scenes as Neural Radiance Fields for View Synthesis. In European Conference on Computer Vision 
+(ECCV).\\
 \end{document}
 

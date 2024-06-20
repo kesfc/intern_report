@@ -14,8 +14,8 @@
 \contentsline {subsubsection}{\numberline {2.2.3}模型训练}{5}{subsubsection.2.2.3}%
 \contentsline {subsubsection}{\numberline {2.2.4}训练结果}{5}{subsubsection.2.2.4}%
 \contentsline {subsubsection}{\numberline {2.2.5}实现原理}{6}{subsubsection.2.2.5}%
-\contentsline {subsection}{\numberline {2.3}NeRF Pytorch}{7}{subsection.2.3}%
-\contentsline {section}{致 \, 谢}{7}{subsection.2.3}%
-\contentsline {section}{毕业设计小结}{8}{subsection.2.3}%
-\contentsline {section}{附 \, 录}{9}{subsection.2.3}%
+\contentsline {subsection}{\numberline {2.3}NeRF Pytorch}{8}{subsection.2.3}%
+\contentsline {section}{致 \, 谢}{8}{subsection.2.3}%
+\contentsline {section}{毕业设计小结}{9}{subsection.2.3}%
+\contentsline {section}{文 \, 献}{10}{subsection.2.3}%
 \contentsfinish 
