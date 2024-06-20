@@ -105,7 +105,7 @@ NeRF（Neural Radiance Fields）是一种用于三维重建的深度学习模型
 重新配置环境。在重新配置环境时遇到一些版本冲突的问题，因为3080显卡的电脑上的CUDA版本是12.3，
 不能与原配置的tensorflow版本1.14.0兼容，所以需要重新配置环境。最后在3080显卡的电脑上重新配置
 环境并训练，但最后的预计训练结束时间人在一天左右，所以在github上找到了另外一个模型
-NeRF Pytorch（详情见\hyperref[subsection:NeRF Pytorch]{2.3 NeRF Pytorch}）。
+NeRF Pytorch（详情见\hyperlink{section 2.3}{2.3 NeRF Pytorch}）。
 \makespace
 \subsubsection{实现原理}
 简单一点理解可以把NeRF看作是先用深度全连接神经网络（deep fully-connected neural network）\footnote{通常被称为多层感知机（
@@ -135,27 +135,48 @@ $(ux, uy, uz)$具体的计算公式如下（公式2-2）：
 在进入模型前, 通常还会先将$(x,y,z)$和$(ux, uy, uz)$通过位置编码(positional encoding)\footnote{位置编码是一种将空间位置信息映射到
 更高维的空间中的技术,它可以帮助模型更好地理解空间位置信息,从而提高模型的性能。}映射到更高维的周期性函数空间\footnote{周期性函数空间是
 指由周期函数构成的函数空间。一个周期性函数$f(x)$是指满足$f(x+T) = f(x)$的函数,其中$T$是一个常数,称为周期。}中,以增加模型的表达能力。
-对$(x,y,z)$转换公式示例如下（公式2-3）：
+转换公式示例如下（公式2-3）：
 \begin{equation}
     \begin{aligned}
-        \text{PE}(x) &= (\sin(2^0\pi x), \cos(2^0\pi x), \sin(2^1\pi x), \cos(2^1\pi x), \cdots, \sin(2^{N-1}\pi x), \cos(2^{N-1}\pi x))\endline
-        \text{PE}(y) &= (\sin(2^0\pi y), \cos(2^0\pi y), \sin(2^1\pi y), \cos(2^1\pi y), \cdots, \sin(2^{N-1}\pi y), \cos(2^{N-1}\pi y))\endline
-        \text{PE}(z) &= (\sin(2^0\pi z), \cos(2^0\pi z), \sin(2^1\pi z), \cos(2^1\pi z), \cdots, \sin(2^{N-1}\pi z), \cos(2^{N-1}\pi z))\endline
+        r(x) &= (\sin(2^0\pi x), \cos(2^0\pi x), \sin(2^1\pi x), \cos(2^1\pi x), \cdots, \sin(2^{L-1}\pi x), \cos(2^{L-1}\pi x))
     \end{aligned}
 \end{equation}
 \indent
-及将一个一维向量$x$映射到一个$2N$维的向量，实际使用时除了上述公式中的$2N$维向量外，还会加上一个维度为1的向量和本身的向
-量进行拼接成为$2N+2$维的向量，如下图（公式2-4）：
+及将一个一维向量$x$映射到一个$2L$维的向量，在论文中作者对空间点$x(x,y,z)$转换成了60维的向量，即$L=10$，$3 \times 2L(L=10) = 60$，
+同时将方向d从3维$(ux, uy, uz)$转换成了24维的向量，即$L=4$，$3 \times 2L(L=4) = 24$。
+（详情见\hyperlink{图2-5}{图2-5}）。下图为论文实验时使用位置编码和不使用位置编码的对比图（图2-4）：
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.4\textwidth]{picture/6.png}
+    \includegraphics[width=0.4\textwidth]{picture/7.png}
+    \caption{使用位置编码和不使用位置编码的对比图}
+\end{figure}
+\indent
+从上图中可以看出在使用了位置编码后，模型在细节的表达中会更好，尤其是在凹凸不平的地方，而不使用位置编码的模型在这些地方会变得模糊。\\
+\\
+\indent
+在实际使用位置编码时除了上述公式中的$2L$维向量外，有时还会加上一个维度为1的向量和表示其本身的向量进行拼接成为$2L+2$维的向量（论文的实验中
+并未使用$2L+2$维的向量，这里仅仅只是补充说明），这两个向量的加入可以帮助模型更好的学习低频平滑部分，同时提高模型的灵活性。加入后的新向量
+如下（公式2-4）：
 \begin{equation}
     \begin{aligned}
-        \text{PE}(x) &= (0, x, \sin(2^0\pi x), \cos(2^0\pi x), \sin(2^1\pi x), \cos(2^1\pi x), \cdots, \sin(2^{N-1}\pi x), \cos(2^{N-1}\pi x))\endline
-        \text{PE}(y) &= (0, y, \sin(2^0\pi y), \cos(2^0\pi y), \sin(2^1\pi y), \cos(2^1\pi y), \cdots, \sin(2^{N-1}\pi y), \cos(2^{N-1}\pi y))\endline
-        \text{PE}(z) &= (0, z, \sin(2^0\pi z), \cos(2^0\pi z), \sin(2^1\pi z), \cos(2^1\pi z), \cdots, \sin(2^{N-1}\pi z), \cos(2^{N-1}\pi z))\endline
+        r(x) &= (\sin(2^0\pi x), \cos(2^0\pi x), \sin(2^1\pi x), \cos(2^1\pi x), \cdots, \sin(2^{L-1}\pi x), \cos(2^{L-1}\pi x), x, 1)
     \end{aligned}
 \end{equation}
+\indent
+空间点$(x,y,z)$通过位置编码升维过后的高维向量会先进入深度全连接神经网络（MLP）中，在经过多层的全连接层和激活函数后，最后输出密度
+（$\sigma$）和
+示例如下图（图2-5）：
+\hypertarget{图2-5}{}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{picture/5.png}
+    \caption{NeRF中的MLP结构示例}
+\end{figure}
 \makespace
-
+\hypertarget{section 2.3}{}
 \subsection{NeRF Pytorch}
+\makespace
 \section*{致谢}
 \begin{center}
     { \blackti \fontsize{16.0600pt}{1.25}致 \, 谢}
@@ -164,17 +185,6 @@ $(ux, uy, uz)$具体的计算公式如下（公式2-2）：
 \myspace{1}
 致谢内容。
 
-% 毕业设计小结
-\section*{毕业设计小结}
-\makespace
-\begin{center}
-    { \blackti \fontsize{16.0600pt}{1.25}毕业设计小结}
-\end{center}
-\addcontentsline{toc}{section}{毕业设计小结}
-\myspace{1}
-小结内容。
-
-% 附录
 \makespace
 \section*{文献}
 \begin{center}
