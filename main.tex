@@ -165,6 +165,8 @@ $(ux, uy, uz)$具体的计算公式如下（公式2-2）：
 \end{equation}
 \indent
 空间点$x(x,y,z)$通过位置编码升维过后的高维向量会先进入深度全连接神经网络（MLP）中，在经过多层的全连接层和激活函数(Activation Function)
+\footnote{激活函数的作用是在神经网络中引入非线性因素，使得整个网络由线性变换的组合升级为非线性变换的组合，从而能够拟合更加复杂的映射函数。
+没有激活函数，即使是深层网络，最终的输出也只能是输入的线性组合，表达能力是有限的。}
 后，最后输出密度（$\sigma$）和 一个维度和之前全连接层维度相同的中间特征向量，中间特征会和三维方向向量d通过位置编码升维过后的高维向量一起
 输入到额外的全连接层中去预测颜色（RGB）。示例如下图（图2-5）：
 \hypertarget{图2-5}{}
@@ -172,6 +174,25 @@ $(ux, uy, uz)$具体的计算公式如下（公式2-2）：
     \centering
     \includegraphics[width=0.8\textwidth]{picture/5.png}
     \caption{NeRF中的MLP结构示例}
+\end{figure}
+在论文中（如上图）作者使用了8层的全连接层，每层的隐藏单元数为256，激活函数为ReLU（Rectified Linear Unit），空间点$x(x,y,z)$在进入这个8
+层的全连接层后输出了密度（$\sigma$）和一个维度为256的中间特征向量。这个中间特征向量和和方向d一起进入一层额外的全连接层中去预测颜色（RGB、
+），这个额外的全连接层包含了激活函数ReLU和128个隐藏单元。其中ReLU激活函数的公式为（公式2-5）：
+\begin{equation}
+    \begin{aligned}
+        f(x) = \max(0,x)
+    \end{aligned}
+\end{equation}
+表面上来看ReLU只是简单的将小于0的值截为0,但实际上它引入了一个分段线性的非线性函数:
+\begin{enumerate}
+    \item 当输入大于0时，ReLU(x)=0，输出是一个常量
+    \item 当输入小于0时，ReLU(x)=x，输出与输入是线性关系
+\end{enumerate}
+这两个分段线性区域的接合点$(x=0)$引入了一个折线的不连续点,使得整个映射函数不再是单纯的线性方程,而具有了非线性的性质。如下图（图2-6）：
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{picture/8.png}
+    \caption{ReLU激活函数示例}
 \end{figure}
 \makespace
 \hypertarget{section 2.3}{}
