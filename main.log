@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2024.6.14)  20 JUN 2024 16:16
+This is XeTeX, Version 3.141592653-2.6-0.999996 (MiKTeX 24.4) (preloaded format=xelatex 2024.6.14)  17 JUL 2024 10:11
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -746,29 +746,62 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibsep=\skip90
 LaTeX Info: Redefining \cite on input line 694.
 \c@NAT@ctr=\count351
-)) (main.aux)
+))
+(D:\Program Files (x86)\MiKTex\tex/latex/listings\listings.sty
+\lst@mode=\count352
+\lst@gtempboxa=\box70
+\lst@token=\toks34
+\lst@length=\count353
+\lst@currlwidth=\dimen294
+\lst@column=\count354
+\lst@pos=\count355
+\lst@lostspace=\dimen295
+\lst@width=\dimen296
+\lst@newlines=\count356
+\lst@lineno=\count357
+\lst@maxwidth=\dimen297
+
+(D:\Program Files (x86)\MiKTex\tex/latex/listings\lstpatch.sty
+File: lstpatch.sty 2024/05/25 1.10b (Carsten Heinz)
+)
+(D:\Program Files (x86)\MiKTex\tex/latex/listings\lstmisc.sty
+File: lstmisc.sty 2024/05/25 1.10b (Carsten Heinz)
+\c@lstnumber=\count358
+\lst@skipnumbers=\count359
+\lst@framebox=\box71
+)
+(D:\Program Files (x86)\MiKTex\tex/latex/listings\listings.cfg
+File: listings.cfg 2024/05/25 1.10b listings configuration
+))
+Package: listings 2024/05/25 1.10b (Carsten Heinz)
+
+(D:\Program Files (x86)\MiKTex\tex/xelatex/xecjk\xeCJK-listings.sty
+Package: xeCJK-listings 2022/08/05 v3.9.1 xeCJK patch file for listings
+\l__xeCJK_listings_max_char_int=\count360
+\l__xeCJK_listings_flag_int=\count361
+) (main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 6.
-LaTeX Font Info:    ... okay on input line 6.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 8.
+LaTeX Font Info:    ... okay on input line 8.
 
 Package fontspec Info: 
 (fontspec)             Adjusting the maths setup (use [no-math] to avoid
@@ -776,64 +809,63 @@ Package fontspec Info:
 
 \symlegacymaths=\mathgroup9
 LaTeX Font Info:    Overwriting symbol font `legacymaths' in version `bold'
-(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 6.
-LaTeX Font Info:    Redeclaring math accent \acute on input line 6.
-LaTeX Font Info:    Redeclaring math accent \grave on input line 6.
-LaTeX Font Info:    Redeclaring math accent \ddot on input line 6.
-LaTeX Font Info:    Redeclaring math accent \tilde on input line 6.
-LaTeX Font Info:    Redeclaring math accent \bar on input line 6.
-LaTeX Font Info:    Redeclaring math accent \breve on input line 6.
-LaTeX Font Info:    Redeclaring math accent \check on input line 6.
-LaTeX Font Info:    Redeclaring math accent \hat on input line 6.
-LaTeX Font Info:    Redeclaring math accent \dot on input line 6.
-LaTeX Font Info:    Redeclaring math accent \mathring on input line 6.
-LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 6.
-LaTeX Font Info:    Redeclaring math symbol \Delta on input line 6.
-LaTeX Font Info:    Redeclaring math symbol \Theta on input line 6.
-LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 6.
-LaTeX Font Info:    Redeclaring math symbol \Xi on input line 6.
-LaTeX Font Info:    Redeclaring math symbol \Pi on input line 6.
-LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 6.
-LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 6.
-LaTeX Font Info:    Redeclaring math symbol \Phi on input line 6.
-LaTeX Font Info:    Redeclaring math symbol \Psi on input line 6.
-LaTeX Font Info:    Redeclaring math symbol \Omega on input line 6.
-LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 6.
-LaTeX Font Info:    Redeclaring symbol font `operators' on input line 6.
+(Font)                  OT1/cmr/m/n --> OT1/cmr/bx/n on input line 8.
+LaTeX Font Info:    Redeclaring math accent \acute on input line 8.
+LaTeX Font Info:    Redeclaring math accent \grave on input line 8.
+LaTeX Font Info:    Redeclaring math accent \ddot on input line 8.
+LaTeX Font Info:    Redeclaring math accent \tilde on input line 8.
+LaTeX Font Info:    Redeclaring math accent \bar on input line 8.
+LaTeX Font Info:    Redeclaring math accent \breve on input line 8.
+LaTeX Font Info:    Redeclaring math accent \check on input line 8.
+LaTeX Font Info:    Redeclaring math accent \hat on input line 8.
+LaTeX Font Info:    Redeclaring math accent \dot on input line 8.
+LaTeX Font Info:    Redeclaring math accent \mathring on input line 8.
+LaTeX Font Info:    Redeclaring math symbol \Gamma on input line 8.
+LaTeX Font Info:    Redeclaring math symbol \Delta on input line 8.
+LaTeX Font Info:    Redeclaring math symbol \Theta on input line 8.
+LaTeX Font Info:    Redeclaring math symbol \Lambda on input line 8.
+LaTeX Font Info:    Redeclaring math symbol \Xi on input line 8.
+LaTeX Font Info:    Redeclaring math symbol \Pi on input line 8.
+LaTeX Font Info:    Redeclaring math symbol \Sigma on input line 8.
+LaTeX Font Info:    Redeclaring math symbol \Upsilon on input line 8.
+LaTeX Font Info:    Redeclaring math symbol \Phi on input line 8.
+LaTeX Font Info:    Redeclaring math symbol \Psi on input line 8.
+LaTeX Font Info:    Redeclaring math symbol \Omega on input line 8.
+LaTeX Font Info:    Redeclaring math symbol \mathdollar on input line 8.
+LaTeX Font Info:    Redeclaring symbol font `operators' on input line 8.
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `normal' on input line 6.
+(Font)              `operators' in the math version `normal' on input line 8.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
-(Font)                  OT1/cmr/m/n --> TU/TimesNewRoman(0)/m/n on input line 6
+(Font)                  OT1/cmr/m/n --> TU/TimesNewRoman(0)/m/n on input line 8
 .
 LaTeX Font Info:    Encoding `OT1' has changed to `TU' for symbol font
-(Font)              `operators' in the math version `bold' on input line 6.
+(Font)              `operators' in the math version `bold' on input line 8.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/m/n on input line 
-6.
+8.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `normal'
 (Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/m/n on 
-input line 6.
+input line 8.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `normal'
 (Font)                  OT1/cmr/m/it --> TU/TimesNewRoman(0)/m/it on input line
- 6.
+ 8.
 LaTeX Font Info:    Overwriting math alphabet `\mathbf' in version `normal'
 (Font)                  OT1/cmr/bx/n --> TU/TimesNewRoman(0)/b/n on input line 
-6.
+8.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `normal'
-(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 6.
+(Font)                  OT1/cmss/m/n --> TU/lmss/m/n on input line 8.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `normal'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 6.
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/m/n on input line 8.
 LaTeX Font Info:    Overwriting symbol font `operators' in version `bold'
 (Font)                  TU/TimesNewRoman(0)/m/n --> TU/TimesNewRoman(0)/b/n on 
-input line 6.
+input line 8.
 LaTeX Font Info:    Overwriting math alphabet `\mathit' in version `bold'
 (Font)                  OT1/cmr/bx/it --> TU/TimesNewRoman(0)/b/it on input lin
-e 6.
+e 8.
 LaTeX Font Info:    Overwriting math alphabet `\mathsf' in version `bold'
-(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 6.
+(Font)                  OT1/cmss/bx/n --> TU/lmss/b/n on input line 8.
 LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
-(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 6.
-
+(Font)                  OT1/cmtt/m/n --> TU/lmtt/b/n on input line 8.
 *geometry* driver: auto-detecting
 *geometry* detected driver: xetex
 *geometry* verbose mode - [ preamble ] result:
@@ -868,13 +900,15 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
-Package hyperref Info: Link coloring OFF on input line 6.
+Package hyperref Info: Link coloring OFF on input line 8.
 (main.out) (main.out)
 \@outlinefile=\write3
 \openout3 = `main.out'.
 
 Package caption Info: Begin \AtBeginDocument code.
+Package caption Info: listings package is loaded.
 Package caption Info: End \AtBeginDocument code.
+\c@lstlisting=\count362
 
 
 [1
@@ -900,30 +934,14 @@ LaTeX Font Info:    Trying to load font information for U+msb on input line 1.
 
 (D:\Program Files (x86)\MiKTex\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-))
+)
+
+File: ./picture/1.png Graphic file (type bmp)
+<./picture/1.png>
+[2])
 \tf@toc=\write4
 \openout4 = `main.toc'.
 
-
-
-File: ./picture/1.png Graphic file (type bmp)
-<./picture/1.png>
-[2]
-
-File: ./picture/1.png Graphic file (type bmp)
-<./picture/1.png>
-[1]
-File: picture/2.png Graphic file (type bmp)
-<picture/2.png>
-
-
-File: ./picture/1.png Graphic file (type bmp)
-<./picture/1.png>
-[2]
-File: picture/3.png Graphic file (type bmp)
-<picture/3.png>
-File: picture/4.png Graphic file (type bmp)
-<picture/4.png>
 
 
 File: ./picture/1.png Graphic file (type bmp)
@@ -932,30 +950,62 @@ File: ./picture/1.png Graphic file (type bmp)
 
 File: ./picture/1.png Graphic file (type bmp)
 <./picture/1.png>
+[1]
+
+File: ./picture/1.png Graphic file (type bmp)
+<./picture/1.png>
+[2]
+File: picture/2.png Graphic file (type bmp)
+<picture/2.png>
+
+
+File: ./picture/1.png Graphic file (type bmp)
+<./picture/1.png>
+[3]
+File: picture/3.png Graphic file (type bmp)
+<picture/3.png>
+File: picture/4.png Graphic file (type bmp)
+<picture/4.png>
+
+
+File: ./picture/1.png Graphic file (type bmp)
+<./picture/1.png>
 [4]
 
 File: ./picture/1.png Graphic file (type bmp)
 <./picture/1.png>
 [5]
-Overfull \hbox (5.4193pt too wide) detected at line 143
+
+File: ./picture/1.png Graphic file (type bmp)
+<./picture/1.png>
+[6]
+Overfull \hbox (12.32762pt too wide) in paragraph at lines 130--138
+[]\TU/simsun.ttc(0)/m/n/12 简 单 一 点 理 解 可 以 把 \TU/TimesNewRoman(0)/b/n/12 NeRF \
+TU/simsun.ttc(0)/m/n/12 看 作 是 用 \TU/simsun.ttc(0)/b/n/12 深 度 全 连 接 神 经 网 络  |\T
+U/simsun.ttc(0)/m/n/12 （\TU/TimesNewRoman(0)/m/n/12 deep fully-connected
+ []
+
+
+Overfull \hbox (5.4193pt too wide) detected at line 166
 [][][][][]
  []
 
+
+
+File: ./picture/1.png Graphic file (type bmp)
+<./picture/1.png>
+[7]
 File: picture/6.png Graphic file (type bmp)
 <picture/6.png>
 File: picture/7.png Graphic file (type bmp)
 <picture/7.png>
 
-
-File: ./picture/1.png Graphic file (type bmp)
-<./picture/1.png>
-[6]
-Underfull \hbox (badness 10000) in paragraph at lines 154--161
+Underfull \hbox (badness 10000) in paragraph at lines 177--184
 
  []
 
 
-Overfull \hbox (28.49892pt too wide) detected at line 165
+Overfull \hbox (28.49892pt too wide) detected at line 188
 [][][][][]
  []
 
@@ -965,23 +1015,244 @@ File: picture/5.png Graphic file (type bmp)
 
 File: ./picture/1.png Graphic file (type bmp)
 <./picture/1.png>
-[7]
+[8]
+
+File: ./picture/1.png Graphic file (type bmp)
+<./picture/1.png>
+[9]
 File: picture/8.png Graphic file (type bmp)
 <picture/8.png>
 
 
 File: ./picture/1.png Graphic file (type bmp)
 <./picture/1.png>
-[8]
-
-File: ./picture/1.png Graphic file (type bmp)
-<./picture/1.png>
-[9]
-
-File: ./picture/1.png Graphic file (type bmp)
-<./picture/1.png>
 [10]
-Underfull \hbox (badness 10000) in paragraph at lines 216--220
+Underfull \hbox (badness 10000) in paragraph at lines 285--287
+
+ []
+
+
+
+File: ./picture/1.png Graphic file (type bmp)
+<./picture/1.png>
+[11]
+
+File: ./picture/1.png Graphic file (type bmp)
+<./picture/1.png>
+[12]
+File: picture/9.png Graphic file (type bmp)
+<picture/9.png>
+File: picture/10.png Graphic file (type bmp)
+<picture/10.png>
+File: picture/11.png Graphic file (type bmp)
+<picture/11.png>
+
+
+File: ./picture/1.png Graphic file (type bmp)
+<./picture/1.png>
+[13] (D:\Program Files (x86)\MiKTex\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2024/05/25 1.10b listings language file
+)
+(D:\Program Files (x86)\MiKTex\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2024/05/25 1.10b listings language file
+)
+Overfull \hbox (51.45642pt too wide) in paragraph at lines 367--368
+[][][][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+
+File: ./picture/1.png Graphic file (type bmp)
+<./picture/1.png>
+[14]
+Overfull \hbox (58.6565pt too wide) in paragraph at lines 380--381
+[][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+LaTeX Font Info:    Font shape `TU/lmtt/bx/n' in size <12> not available
+(Font)              Font shape `TU/lmtt/b/n' tried instead on input line 381.
+
+Overfull \hbox (37.05627pt too wide) in paragraph at lines 394--395
+[][][][][][][][][][][][][][][][][][][][] 
+ []
+
+File: picture/12.png Graphic file (type bmp)
+<picture/12.png>
+
+
+File: ./picture/1.png Graphic file (type bmp)
+<./picture/1.png>
+[15]
+File: picture/13.png Graphic file (type bmp)
+<picture/13.png>
+File: picture/14.png Graphic file (type bmp)
+<picture/14.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 436--439
+
+ []
+
+
+
+File: ./picture/1.png Graphic file (type bmp)
+<./picture/1.png>
+[16]
+Overfull \hbox (52.65613pt too wide) in paragraph at lines 446--447
+[][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+(D:\Program Files (x86)\MiKTex\tex/latex/listings\lstlang1.sty
+File: lstlang1.sty 2024/05/25 1.10b listings language file
+)
+
+File: ./picture/1.png Graphic file (type bmp)
+<./picture/1.png>
+[17]
+Overfull \hbox (2.25562pt too wide) in paragraph at lines 477--478
+[][][][][][][][][][][][][][][][][][][][][][][][] 
+ []
+
+
+Overfull \hbox (18.76807pt too wide) in paragraph at lines 488--490
+[]\TU/simsun.ttc(0)/m/n/12 最 后 将 原 文 件 夹 中 的 \TU/TimesNewRoman(0)/b/n/12 camera
+_path.json \TU/simsun.ttc(0)/m/n/12 文 件 替 换 成 新 生 成 的 \TU/TimesNewRoman(0)/b/n/
+12 camera_path.json
+ []
+
+
+Overfull \hbox (6.2397pt too wide) in paragraph at lines 496--497
+[]\TU/simsun.ttc(0)/m/n/12 在 \TU/TimesNewRoman(0)/m/n/12 NeRF Studio \TU/simsun
+.ttc(0)/m/n/12 中 有 一 个 可 以 处 理 数 据 的 工 具，|  可 以 将 图 片 和 视 频 通 过 \TU/TimesNewRom
+an(0)/m/n/12 Colmap
+ []
+
+
+
+File: ./picture/1.png Graphic file (type bmp)
+<./picture/1.png>
+[18]
+File: picture/15.png Graphic file (type bmp)
+<picture/15.png>
+File: picture/16.png Graphic file (type bmp)
+<picture/16.png>
+File: picture/17.png Graphic file (type bmp)
+<picture/17.png>
+File: picture/18.png Graphic file (type bmp)
+<picture/18.png>
+
+
+File: ./picture/1.png Graphic file (type bmp)
+<./picture/1.png>
+[19]
+File: picture/20.png Graphic file (type bmp)
+<picture/20.png>
+
+
+File: ./picture/1.png Graphic file (type bmp)
+<./picture/1.png>
+[20]
+File: picture/19.png Graphic file (type bmp)
+<picture/19.png>
+
+
+File: ./picture/1.png Graphic file (type bmp)
+<./picture/1.png>
+[21]
+Underfull \hbox (badness 10000) in paragraph at lines 563--565
+
+ []
+
+File: picture/21.png Graphic file (type bmp)
+<picture/21.png>
+File: picture/22.png Graphic file (type bmp)
+<picture/22.png>
+
+
+File: ./picture/1.png Graphic file (type bmp)
+<./picture/1.png>
+[22]
+
+File: ./picture/1.png Graphic file (type bmp)
+<./picture/1.png>
+[23]
+File: picture/23.png Graphic file (type bmp)
+<picture/23.png>
+
+
+File: ./picture/1.png Graphic file (type bmp)
+<./picture/1.png>
+[24]
+File: picture/24.png Graphic file (type bmp)
+<picture/24.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 637--647
+
+ []
+
+
+
+File: ./picture/1.png Graphic file (type bmp)
+<./picture/1.png>
+[25]
+Underfull \hbox (badness 10000) in paragraph at lines 665--686
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 665--686
+
+ []
+
+
+
+File: ./picture/1.png Graphic file (type bmp)
+<./picture/1.png>
+[26]
+Underfull \hbox (badness 10000) in paragraph at lines 693--694
+
+ []
+
+File: picture/25.png Graphic file (type bmp)
+<picture/25.png>
+
+Underfull \hbox (badness 10000) in paragraph at lines 695--709
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 695--709
+
+ []
+
+
+
+File: ./picture/1.png Graphic file (type bmp)
+<./picture/1.png>
+[27]
+
+File: ./picture/1.png Graphic file (type bmp)
+<./picture/1.png>
+[28]
+
+File: ./picture/1.png Graphic file (type bmp)
+<./picture/1.png>
+[29]
+Underfull \hbox (badness 10000) in paragraph at lines 731--737
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 731--737
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 731--737
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 731--737
 
  []
 
@@ -993,21 +1264,21 @@ See the caption package documentation for explanation.
 
 File: ./picture/1.png Graphic file (type bmp)
 <./picture/1.png>
-[11] (main.aux)
+[30] (main.aux)
  ***********
 LaTeX2e <2024-06-01> patch level 1
-L3 programming layer <2022/07/14>
+L3 programming layer <2022/08/05>
  ***********
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 20B3B4C134013C23B99A370E13ECEEF6;2382.
+(rerunfilecheck)             Checksum: 3223797059BC6B6981379730EDAEAC24;6256.
  ) 
 Here is how much of TeX's memory you used:
- 20207 strings out of 409049
- 419322 string characters out of 5760239
- 1944560 words of memory out of 5000000
- 42548 multiletter control sequences out of 15000+600000
- 572272 words of font info for 125 fonts, out of 8000000 for 9000
+ 21998 strings out of 409049
+ 450991 string characters out of 5760239
+ 1958560 words of memory out of 5000000
+ 44293 multiletter control sequences out of 15000+600000
+ 572320 words of font info for 131 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
- 107i,13n,111p,1243b,469s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 107i,14n,111p,1243b,1992s stack positions out of 10000i,1000n,20000p,200000b,200000s
 
-Output written on main.pdf (13 pages).
+Output written on main.pdf (33 pages).

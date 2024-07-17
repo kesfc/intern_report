@@ -63,7 +63,7 @@
 \titleformat{\section}{\centering\fontsize{16.0600pt}{1.25}\blackti\selectfont}{第\chinese{section}章}{1em}{}
 \titleformat{\subsection}{\fontsize{14.0525pt}{1.25}\blackti\selectfont}{\thesubsection}{1em}{}
 \titleformat{\subsubsection}{\fontsize{12.0450pt}{1.25}\blackti\selectfont}{\thesubsubsection}{1em}{}
-%\renewcommand{\thesubsubsection}{\fontsize{12.0450pt}{1.25}\selectfont \arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
+\renewcommand{\thesubsubsection}{\fontsize{12.0450pt}{1.25}\selectfont \arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
 % 目录定制   
 \RequirePackage{titletoc}
 \ctexset{
