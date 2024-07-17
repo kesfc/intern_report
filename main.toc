@@ -8,7 +8,7 @@
 \contentsline {subsection}{\numberline {3.2}模型环境配置}{3}{subsection.3.2}%
 \contentsline {subsection}{\numberline {3.3}模型训练}{3}{subsection.3.3}%
 \contentsline {subsection}{\numberline {3.4}测试自己制作的数据集}{4}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}实现原理}{4}{subsection.3.5}%
+\contentsline {subsection}{\numberline {3.5}实现原理}{5}{subsection.3.5}%
 \contentsline {section}{\numberline {第四章}NeRF}{6}{section.4}%
 \contentsline {subsection}{\numberline {4.1}模型简介}{6}{subsection.4.1}%
 \contentsline {subsection}{\numberline {4.2}模型环境配置}{6}{subsection.4.2}%
@@ -42,9 +42,14 @@
 \contentsline {subsection}{\numberline {7.1}Colmap简介}{22}{subsection.7.1}%
 \contentsline {subsection}{\numberline {7.2}Colmap下载}{22}{subsection.7.2}%
 \contentsline {subsection}{\numberline {7.3}通过视频或图片生成点云}{22}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}SIFT算法}{23}{subsection.7.4}%
-\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 7.4.1}SIFT算法简介}{23}{subsubsection.7.4.1}%
-\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 7.4.2}SIFT算法原理}{24}{subsubsection.7.4.2}%
-\contentsline {section}{致 \, 谢}{29}{figure.caption.18}%
-\contentsline {section}{文 \, 献}{30}{figure.caption.18}%
+\contentsline {subsection}{\numberline {7.4}SIFT算法}{24}{subsection.7.4}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 7.4.1}SIFT算法简介}{24}{subsubsection.7.4.1}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 7.4.2}背景与历史}{24}{subsubsection.7.4.2}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 7.4.3}SIFT算法原理}{25}{subsubsection.7.4.3}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 7.4.4}SIFT算法在Colmap中的应用}{29}{subsubsection.7.4.4}%
+\contentsline {subsection}{\numberline {7.5}SFM}{30}{subsection.7.5}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 7.5.1}SFM简介}{30}{subsubsection.7.5.1}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 7.5.2}SFM算法原理}{30}{subsubsection.7.5.2}%
+\contentsline {section}{致 \, 谢}{32}{subsubsection.7.5.2}%
+\contentsline {section}{文 \, 献}{33}{subsubsection.7.5.2}%
 \contentsfinish 
