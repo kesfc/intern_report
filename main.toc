@@ -50,6 +50,11 @@
 \contentsline {subsection}{\numberline {7.5}SFM}{30}{subsection.7.5}%
 \contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 7.5.1}SFM简介}{30}{subsubsection.7.5.1}%
 \contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 7.5.2}SFM算法原理}{30}{subsubsection.7.5.2}%
-\contentsline {section}{致 \, 谢}{32}{subsubsection.7.5.2}%
-\contentsline {section}{文 \, 献}{33}{subsubsection.7.5.2}%
+\contentsline {subsection}{\numberline {7.6}MVS}{31}{subsection.7.6}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 7.6.1}MVS简介}{31}{subsubsection.7.6.1}%
+\contentsline {section}{\numberline {第八章}Gaussian Splatting}{32}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Gaussian Splatting简介}{32}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}模型环境配置}{32}{subsection.8.2}%
+\contentsline {section}{致 \, 谢}{33}{subsection.8.2}%
+\contentsline {section}{文 \, 献}{34}{subsection.8.2}%
 \contentsfinish 
