@@ -29,7 +29,7 @@
 \section{实习目标}
 \subsection{学习方向及目标}
 学习现在先进的计算机视觉（Computer Vision）以及图形学与AI结合的模型如\textbf{Neural Radiance Fields}（神经辐射场，简称NeRF），
-\textbf{3D Gaussian Splatting}（3D高斯溅射，简称3dgs），以及\textbf{YOLO}（全称You Only Look Once），同时理解各个模型的实现原理。
+\textbf{3D Gaussian Splatting}（高斯椭球溅射，简称3dgs），以及\textbf{YOLO}（全称You Only Look Once），同时理解各个模型的实现原理。
 \subsection{期望}
 \begin{itemize}
     \item 完成搭建尽可能多的AI模型，配置其环境，并完成训练其预设数据库。
@@ -167,7 +167,7 @@ $(ux, uy, uz)$具体的计算公式如下（公式2-2）：
 \end{equation}
 \indent
 及将一个一维向量$x$映射到一个$2L$维的向量，在论文中作者对空间点$x(x,y,z)$转换成了60维的向量，即$L=10$，$3 \times 2L(L=10) = 60$，
-同时将方向d从3维$(ux, uy, uz)$转换成了24维的向量，即$L=4$，$3 \times 2L(L=4) = 24$。
+同时将方向d从三维$(ux, uy, uz)$转换成了24维的向量，即$L=4$，$3 \times 2L(L=4) = 24$。
 （详情见\hyperlink{图2-5}{图2-5}）。下图为论文实验时使用位置编码和不使用位置编码的对比图：
 \begin{figure}[H]
     \centering
@@ -235,7 +235,7 @@ Rectified Linear Unit），空间点$x(x,y,z)$在进入这个8层的全连接层
 $256 \times 256$。第9个全连接层在输入时除了256维的中间向量以外还输出了密度$(\sigma)$，及输出了一个257维的向量，所以第九个全连接层的权重
 矩阵大小为$256 \times 257$。第十个全连接层的输入除了刚刚提到的256维的中间向量以外，24维的经过位置编码升维过后的24维方向向量也进入了模型
 所以第十个全连接层的输入是280维的向量，且输出为128维的向量，所以第十个全连接层的权重矩阵大小为$280 \times 128$。最后这个128维向量在进入
-一个$128 \times 3$的权重矩阵后输出了3维的颜色（RGB）。
+一个$128 \times 3$的权重矩阵后输出了三维的颜色（RGB）。
 \\
 \indent
 上文还提到了，在全连接层中同时也用到了ReLU（Rectified Linear Unit）这种激活函数，ReLU激活函数的公式如下（公式2-6）：
@@ -806,20 +806,279 @@ MVS算法在计算机视觉、机器人技术、增强现实等领域有着广�
 计算出图像中的像素值。通过这种方式，我们可以将点云数据转换为图像数据，从而实现对点云的可视化和分析。Gaussian
 Splatting技术在计算机图形学、计算机视觉和机器学习等领域有着广泛的应用，是一种重要的点云处理技术。
 \subsection{模型环境配置}
+\noindent
 于CUDA 12.2基础下：
+\begin{itemize}
+    \item Python = 3.8.19
+    \item pytorch-cuda = 12.1
+    \item torch = 2.3.1
+    \item torchaudio = 2.3.0
+    \item tqdm = 4.66.4
+\end{itemize}
+
+\indent
+模型通过\underline{git clone https://github.com/graphdeco-inria/gaussian-splatting --recursive}
+进行克隆。随后在配置完以上环境后，还需要下载\textbf{diff-gaussian-rasterization}和\textbf{simple-knn}
+两个库，可以通过下列命令安装：
+\begin{itemize}
+    \item pip install submodules/diff-gaussian-rasterization
+    \item pip install submodules/simple-knn
+\end{itemize}
+\subsection{模型训练}
+\indent
+在配置好环境后，我们可以通过以下命令来训练模型：
+\begin{itemize}
+    \item python train.py --dataset path/to/dataset --batch-size 4 --num-epochs 100
+\end{itemize}
+
+\indent
+其中，--dataset指定了数据集的路径，--batch-size指定了训练时的批大小，--num-epochs指定了训练的轮数。
+训练的结果会保存在\textbf{output}文件夹中。后续如果想要观察训练的结果结果需要下载\textbf{SIBR\_gaussianViewer}
+，但我在实习过程中下载这个库时遇到了一些问题，且后续通过\textbf{\hyperlink{sugar}{SuGaR}}直接生成模型
+的可视化结果，所以没有继续尝试下载这个库。\\
+
+\subsection{实现原理}
+\subsection{预备过程到训练开始之前}
+\indent
+3D Gaussian Splatting首先需要使用者提供2D图像集，接着通过SfM算法将图像集转化为Sparse Point Cloud(稀疏点云)。
+然后，将稀疏点云转化为高斯椭球（3D Gaussian）高斯椭球椭球将会根据以下4个参数进行定义：
+\begin{itemize}
+    \item M - 3D position（三维坐标），即高斯椭球的中心位置（x,y,z）
+    \item S - anisotropic covariance（各向异性协方差）\footnote{各向异性协方差是指协方差矩阵的对角元素
+    不相等，非对角元素为零的协方差矩阵。}$\Sigma$，包含高斯椭球的旋转矩阵R和缩放矩阵S。\\
+    其中$\Sigma = RSS^TR^T$，R为旋转矩阵，S为缩放矩阵。R和S的具体形式如下：
+    \begin{equation}
+        \begin{aligned}
+            R &= \begin{bmatrix}
+                cos(\theta) & -sin(\theta)\\
+                sin(\theta) & cos(\theta)\\
+            \end{bmatrix}\\
+            S &= \begin{bmatrix}
+                s_x & 0\\
+                0 & s_y\\
+            \end{bmatrix}\\
+        \end{aligned}
+    \end{equation}
+    这种构造确保了$\sigma$的半正定（positive semi-definite）\footnote{半正定性是指矩阵的特征值均
+    为非负数的性质。}性质，这是高斯椭球模型的关键特性。\\
+    \textbf{几何意义}（geometric interpretation）\footnote{几何意义是指数学概念在几何学中的
+    解释和应用。}在于，通过先旋转椭球使其与坐标轴对齐，然后进行缩放，最后再旋转回原始方向，可以灵活
+    地控制椭球的形状和方向。\\
+    这样的优点是：
+    \begin{itemize}
+        \item \textbf{稳定性：} 由于 $\Sigma$ 的构造方式，保证了其始终为半正定，避免了在优化过程中可能出现的数值不稳定问题。
+        \item \textbf{减少训练量：} 通过固定 $\Sigma$ 的形式，减少了需要优化的参数数量，从而降低了训练的复杂度和计算量。
+    \end{itemize}
+    \item A - opacity（不透明度）$\alpha$
+    \item C - Spherical Harmoincs Coefficients（球谐系数），用来表示点云颜色（r,g,b）。通过球谐系数
+    可以使得点云在不同角度下有不同的颜色，并有利于提高迭代的效率。
+\end{itemize}
+
+\indent
+在使用稀疏点云初始化高斯椭球时我们首先只会用到三维坐标和各向异性协方差来初始化高斯椭球的位置和形状。
+具体的计算公式如下：（公式7-5）
+\begin{equation}
+    G(x) = e^{-\frac{1}{2}(x)^T\Sigma^{-1}(x)}
+\end{equation}
+
+\indent
+其中，$x$是点云的三维坐标，$\Sigma$是各向异性协方差。\\
+\indent
+接着将会加入不透明度$\alpha$和球谐系数来初始化高斯椭球的颜色。在详细讲述如何初始化高斯椭球的颜色之前，
+我们需要先来了解一下球谐函数（Spherical Harmonics）的概念。\\
+\indent
+球谐函数是一种在球坐标系中定义的特殊函数，它们是\textbf{Laplace}（拉普拉斯）方程\footnote{拉普拉斯方程
+是一种描述物理现象的偏微分方程，它描述了一个标量场的空间分布和时间演化。}在球坐标系中的解，广泛应用于
+解决涉及球对称性问题的物理和工程问题，如电磁学、量子力学和引力理论。球谐函数公式如下：（公式8-3）
+\begin{equation}
+    Y_{l,m}(\theta,\phi) = \sqrt{\frac{2l+1}{4\pi}\frac{(l-m)!}{(l+m)!}}P_{l,m}(\cos\theta)e^{im\phi}
+\end{equation}
+
+\indent
+其中：
+\begin{itemize}
+    \item $\theta$是极角，取值范围为$[0,\pi]$
+    \item $\phi$是方位角，取值范围为$[0,2\pi]$
+    \item l是非负整数，表示球谐函数的阶数（degree）
+    \item m是整数，表示球谐函数的次数（order），取值范围为$[-l,l]$
+    \item $P_{l,m}$是归一化的伴随勒让德多项式（Normalized Associated Legendre Polynomial）\footnote{
+    归一化的伴随勒让德多项式是一种用于描述球面上的函数的数学工具，通过归一化的伴随勒让德多项式，我们可以表
+    示球面上的函数，并计算球面上的积分。}
+    \item $e^{im\phi}$是复指数函数，用于表示球面上的复值函数
+\end{itemize}
+
+\indent
+勒让德多项式$P_{l,m}$可以用递归的方式计算，具体的计算公式如下：（公式7-7）
+\begin{equation}
+    \begin{aligned}
+        P_{l,m} &= \frac{1}{2^ll!}(1-x^2)^{\frac{m}{2}}\frac{d^{l+m}}{dx^{l+m}}(x^2-1)^l\\
+        P_{l,m} &= (-1)^m(1-x^2)^{\frac{m}{2}}\frac{d^m}{dx^m}P_l(x)\\
+    \end{aligned}
+\end{equation}
+
+\indent
+不同的l和m值对应不同的球谐函数，当l=0时，球谐函数为常数，表示球面上的均匀分布；当l=1时，球谐函数为一次
+函数，表示球面上的线性分布；当l=2时，球谐函数为二次函数，表示球面上的二次分布；以此类推。球谐函数的阶数（及l）
+越高，表示球面上的变化越复杂。l越大，球谐函数的变化越快，m的取值范围为$[-l,l]$，表示球谐函数的旋转方向。
+具体图片事例如下：（图7-6）：
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{picture/27.png}
+    \caption{球谐函数}
+\end{figure}
+
+3D Gaussian Splatting中并未使用球谐函数来表示高斯椭球的形状，而是用来表示颜色，且将（r,g,b）分别
+使用球谐函数来表示通过球谐函数，我们可以灵活地
+控制高斯椭球的颜色，使得在不同角度下有不同的颜色，从而提高高斯椭球的可视化效果。
+跟用球谐函数表示形状类似，球谐函数的阶数（及l）越高，表示颜色的变化越复杂，m的取值范围为依然为$[-l,l]$，
+表示颜色的旋转方向。通过球谐函数，我们可以灵活地控制高斯椭球的颜色，使得点云在不同角度下有不同的颜色，从
+而提高高斯椭球的可视化效果。球谐函数在不同的阶数和次数下对应的颜色如下图所示
+：（图8-4，图中用n表示阶数对应上文使用的l，用k表示次数对应上文的m）
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{picture/28.png}
+    \caption{球谐函数在不同的阶数和次数下对应的颜色}
+\end{figure}
+
+\indent
+在论文中作者用了四阶球谐函数来表示颜色，及用到了上图（图8-1）中从n=0到n=4的所有函数，总共16个球谐函数。
+然后再对16个球谐函数进行加权求和，得到最终的颜色。因为是对（r,g,b）三个颜色通道分别进行存储，所以总共
+需要48个球谐函数来表示颜色。\\
 
 
+\subsubsection{训练过程}
+\indent
+在讲述Gaussian Splatting的训练过程之前，我们首先需要了解其中两个重要的步骤：
+\textbf{Differentiable Tile Rasterizer\footnote{Rasterizetion - 光栅化，是一种将图形数据转换为像素数
+据的过程。}}（可微瓦片光栅化器）和\textbf{Adaptive Density Control}
+（自适应密度控制）。\\
 
+\indent
+\textbf{Differentiable Tile Rasterizer}是一种用于将高斯椭球投影到图像平面上的技术，通过对投影点进行加权，
+计算出图像中的像素值。Differentiable Tile Rasterizer需要M（三维坐标），S（各向异性协方差），A（不透明度）
+，C（球谐系数）和V（相机位姿）以及图像的大小作为输入。首先会将图像化分成$16\times16$个tile（瓦片），
+然后针对视椎体（view frustum）\footnote{视椎体是指从相机位置出发，经过相机焦点的视线所围成的空间区域，
+视椎体包含了相机能够看到的所有物体。}和每个块继续剔除高斯椭球。\footnote{块剔除是指确定当前视角下哪些瓦片是
+可见的，哪些是不可见的。如果一个瓦片完全位于视椎体外，那么它以及它包含的所有高斯椭球都可以被剔除，从而不需要
+进行光栅化和渲染。减少不必要的计算量。}。具体来讲，我们只会保留每个视椎体内超过99\% 
+\textbf{confidence intervel}（置信区间）\footnote{置信区间是指对总体参数的估计值所附加的一个区间，用于
+表示估计值的不确定性。}的高斯椭球。然后我们根据它们重叠的tile数量实例化每个高斯（实例化过程考虑了高斯分布
+与多个tile的重叠情况。如果一个高斯分布与多个tile相交，它可能在这些tile的渲染中都有贡献，因此需要在这些tile
+的渲染中被实例化），并为每一个实例分配一个结合了视图空间深度和tile ID，用这些信息对高斯椭球进行排序。按
+高斯椭球到图像平面的深度值进行排序，从近到远往对应的tile中进行splat（投射）。把splat留下的痕迹做
+堆叠累加直到不透明饱和度达到1。因为每个tile都是独立的，所以可以并行处理，在不透明饱和度达到1后就可以
+停止对应tile的处理。光栅化就是从堆叠的splat痕迹中区划分像素网络来生成像素值。在\textbf{向后传播}
+（backward pass）\footnote{向后传播是一种用于计算神经网络中梯度的技术，通过向后传播，我们可以计算出损失
+函数对于每个参数的梯度，从而实现参数的更新。}时，我们需要恢复\textbf{前向传播}(forward pass)\footnote{
+前向传播是一种用于计算神经网络中输出的技术，通过前向传播，我们可以计算出神经网络的输出，从而实现对输入数据的
+处理。}中每个像素完整的混合点序列。为此，我们选择重新遍历每个tile的列表。这个过程可以重用前向传播中已
+排序的高斯数组和tile范围。我们从影响tile中任何像素的最后一个点开始，再次将点协作加载到共享内存中。每个像素
+只会开始处理深度小于或等于前向传播中最后一个贡献点深度的点。\\
+\indent
+为了计算梯度，我们需要恢复前向传播中每一步的累积不透明度值。这是通过存储前向传播结束时的总累积不透明度来实
+现的。在后向传播中，我们将这个存储的最终累积不透明度除以每个点的α值来恢复中间步骤的不透明度。\\
+\indent
+这种方法的一个重要特点是它不限制接收梯度更新的混合基元的数量，使得它能够处理具有任意、可变深度复杂性的场景，
+而无需进行场景特定的超参数调整。下图（图8-3）展示了Differentiable Tile Rasterizer的伪代码：
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{picture/29.png}
+    \caption{Differentiable Tile Rasterizer伪代码}
+\end{figure}
 
+\indent
+\textbf{Adaptive Density Control}是一种用于控制高斯椭球密度的技术，通过自适应地调整高斯椭球的密度，使得
+点云在不同区域有不同的密度，从而提高点云的可视化效果。Adaptive Density Control技术的主要思想是根据点云的
+分布情况，自适应地调整高斯椭球的密度，使得点云在不同区域有不同的密度。在\textbf{Adaptive Density Control}
+过程中，每100次迭代后，将移除不透明度小于阈值的高斯椭球。每次迭代便是对重建不充分区域进行进行处理，详细来
+说就是对\textbf{Under-reconstruction}(重建不充分)\footnote{
+Under-reconstruction是指重建不充分的区域，即真实几何外形不足以用一个高斯椭球拟合的区域}区域进行
+克隆处理，对\textbf{Over-reconstruction}(重建过度)\footnote{Over-reconstruction是指重建过度的区域，
+及一个位置的点太少，大，并不能完美拟合真实几何外形的区域}区域进行分裂处理。重建示例如下图（图8-4）：
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{picture/30.png}
+    \caption{Adaptive Density Control示例}
+\end{figure}
 
+\indent
+判断是否重建是否充分的依据是梯度，如梯度大变代表该位置的误差较大，需要进行的修正也比较的。梯度超过阈值
+变会进行\textbf{Adaptive Density Control}操作。判断使用克隆还是分裂的依据是方差，方差大说明这个
+高斯椭球也比较大，需要进行分裂操作，否则会进行克隆操作。\\
+
+\indent
+最后我们来看看Gaussian Splatting的整体训练过程。下图（图8-5）为3D Gaussian Splatting的整体流程图：
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=1\textwidth]{picture/26.png}
+    \caption{3D Gaussian Splatting整体流程图}
+\end{figure}
+
+\indent
+根据上图，我们可以看到3D Gaussian Splatting的整体训练过程包括两个流程：操作流程（Operation Flow）和
+训练流程（Training Flow）。操作流程（黑色箭头）是从输入到输出的正向过程，其目的是生成图像，及从高斯
+椭球到图像的转换过程。训练流程（蓝色箭头）是从输出到输入的反向过程，其目的是优化高斯椭球的参数，使得
+高斯椭球的拟合效果更好。\\
+\indent
+操作流程包括以下几个步骤：
+\begin{itemize}
+    \item 通过\textbf{Adaptive Density Control}优化高斯椭球。
+    \item 将高斯椭球和相机位姿输入到信息一起输入到Projection（投影）模块中
+    \item Projection的输出进入Differentiable Tile Rasterizer
+    \item Differentiable Tile Rasterizer的输出生成最终的图像
+\end{itemize}
+
+\indent
+梯度流程包括以下几个步骤：
+\begin{itemize}
+    \item \textbf{图片 → Differentiable Tile Rasterizer}：计算渲染图像与目标图像之间的差异（损失）。
+    \item \textbf{Differentiable Tile Rasterizer → Projection}：梯度通过光栅化器反向传播到投影步骤。
+    \item \item \textbf{Projection → 高斯椭球}：梯度继续反向传播，影响高斯椭球的参数。
+    \item \textbf{Differentiable Tile Rasterizer → Adaptive Density Control}：计算损失对高斯椭球参数
+    的梯度，为下一轮操作流程提供优化方向。
+    \item \textbf{Adaptive Density Control → 高斯椭球}：梯度继续反向传播，影响高斯椭球的参数。
+\end{itemize}
+
+\subsection{3D Gaussian Splatting和NeRF的比较}
+\indent
+3D Gaussian Splatting和NeRF是两种用于三维重建的技术，它们都是通过对图像进行投影和渲染，来实现对三维场景
+的重建。3D Gaussian Splatting和NeRF的第一点不同在表示方式上，NeRF使用隐式的神经网络来表示场景的光密度和
+颜色。这意味着场景的几何和颜色信息是通过神经网络的权重隐式编码的，而不是直接存储在某个数据结构中。这种隐
+式表示使得NeRF在渲染时需要通过体积渲染技术来重建场景的表面，这通常涉及到复杂的光线追踪和积分计算。
+3D Gaussian Splatting使用显式的高斯椭球分布来表示场景。每个高斯分布对应于场景中的一个点或体积，具有明
+确的位置、大小、不透明度和颜色等属性。这种显式表示使得3DGS在渲染时可以直接使用这些高斯分布进行投影和合成，
+而不需要进行复杂的光线追踪计算。\\
+\indent
+所以两种模型在渲染时也是不同的NeRF需要对每个像素进行光线追踪，计算从摄像机到场景的光线在体积场中的积分，
+这通常涉及到大量的数值计算和采样，所以NeRF的计算较复杂，渲染速度会很慢。3D Gaussian Splatting通过将高
+斯椭球投影到2D图像平面上，直接计算每个高斯对像素颜色的贡献，然后将这些贡献叠加起来，从而实现对图像的
+重建。这种直接投影的方式使得3DGS的计算较为简单，渲染速度较快。\\
+\makespace
+\hypertarget{sugar}{}
+\section{SuGaR}
+\subsection{SuGaR简介}
+\textbf{SuGaR}（Surface-Aligned Gaussian Splatting）是一种从3D高斯分布中提取网格的方法。SuGaR的基本
+思想是将高斯分布投影到网格上，并使用高斯核对投影点进行加权，从而实现对网格的重建。
+\subsection{模型环境配置}
+最开始尝试在Windows下配置SuGaR，但是由于SuGaR模型中要用到pytorch3d库，而pytorch3d库在Windows下的安装
+十分的困难，所以最后选择在Linux下配置SuGaR。\\
+\indent
+后面在linux配置是也遇到了很多的麻烦，主要麻烦是经常出现的依赖问题，尤其是如果直接使用:
+\begin{lstlisting}[language=bash]
+    conda install owner/pytorch3d
+\end{lstlisting}
+
+\indent
+用上述方法下载的话，哪怕下载的是正确的版本的pytorch3d，在下载pytorch3d同时会更新pytorch的版本，这样还是
+会导致后续的依赖问题。最后的解决方案是在\underline{anaconda.org/pytorch3d/pytorch3d/files}下载对应的
+.tar.bz文件，然后直接通过：
+\begin{lstlisting}[language=bash]
+    conda install path/xxx.tar.bz文件
+\end{lstlisting}
 
 \makespace
-\section*{致谢}
-\begin{center}
-    { \blackti \fontsize{16.0600pt}{1.25}致 \, 谢}
-\end{center}
-\addcontentsline{toc}{section}{致\texorpdfstring{ \, }{} 谢}
-\myspace{1}
+\section{致谢}
+
 致谢内容。
 
 \makespace
@@ -835,5 +1094,7 @@ Representing Scenes as Neural Radiance Fields for View Synthesis. In European Co
 (ECCV).\\\\
 Lowe, D. G. (1999). Object recognition from local scale-invariant features. International Journal of Computer Vision, 29(2), 91-110.\\\\
 Lowe, D. G. (2004). Distinctive image features from scale-invariant keypoints. International Journal of Computer Vision, 60(2), 91-110.\\\\
+Kerbl, B., Kopanas, G., Leimkühler, T., \& Drettakis, G. (2023). 3D Gaussian Splatting for Real-Time Radiance Field Rendering. ACM Transactions on Graphics, 42(4), Article 1. \\\\
+
 \end{document}
 

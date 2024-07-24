@@ -55,6 +55,14 @@
 \contentsline {section}{\numberline {第八章}Gaussian Splatting}{32}{section.8}%
 \contentsline {subsection}{\numberline {8.1}Gaussian Splatting简介}{32}{subsection.8.1}%
 \contentsline {subsection}{\numberline {8.2}模型环境配置}{32}{subsection.8.2}%
-\contentsline {section}{致 \, 谢}{33}{subsection.8.2}%
-\contentsline {section}{文 \, 献}{34}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}模型训练}{32}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}实现原理}{33}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}预备过程到训练开始之前}{33}{subsection.8.5}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 8.5.1}训练过程}{36}{subsubsection.8.5.1}%
+\contentsline {subsection}{\numberline {8.6}3D Gaussian Splatting和NeRF的比较}{40}{subsection.8.6}%
+\contentsline {section}{\numberline {第九章}SuGaR}{41}{section.9}%
+\contentsline {subsection}{\numberline {9.1}SuGaR简介}{41}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}模型环境配置}{41}{subsection.9.2}%
+\contentsline {section}{\numberline {第十章}致谢}{42}{section.10}%
+\contentsline {section}{文 \, 献}{43}{section.10}%
 \contentsfinish 
