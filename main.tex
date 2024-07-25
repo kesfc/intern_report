@@ -827,9 +827,9 @@ Splatting技术在计算机图形学、计算机视觉和机器学习等领域�
 \subsection{模型训练}
 \indent
 在配置好环境后，我们可以通过以下命令来训练模型：
-\begin{itemize}
-    \item python train.py --dataset path/to/dataset --batch-size 4 --num-epochs 100
-\end{itemize}
+\begin{lstlisting}[language=python]
+    python train.py --dataset path/to/dataset --batch-size 4 --num-epochs 100
+\end{lstlisting}
 
 \indent
 其中，--dataset指定了数据集的路径，--batch-size指定了训练时的批大小，--num-epochs指定了训练的轮数。
@@ -1071,10 +1071,60 @@ Under-reconstruction是指重建不充分的区域，即真实几何外形不足
 \indent
 用上述方法下载的话，哪怕下载的是正确的版本的pytorch3d，在下载pytorch3d同时会更新pytorch的版本，这样还是
 会导致后续的依赖问题。最后的解决方案是在\underline{anaconda.org/pytorch3d/pytorch3d/files}下载对应的
-.tar.bz文件，然后直接通过：
+.tar.bz文件，然后直接通过运行：
 \begin{lstlisting}[language=bash]
-    conda install path/xxx.tar.bz文件
+    conda install path/xxx.tar.bz
 \end{lstlisting}
+完成安装pytorch3d。最后于CUDA 12.2基础下：
+\begin{itemize}
+    \item Python = 3.8.18
+    \item pytorch-cuda = 12.1
+    \item torch = 2.3.0
+    \item plotly = 5.22.0
+    \item addict = 2.4.0
+    \item ansi2html = 1.9.1
+    \item blinker = 1.7.0
+    \item ...
+\end{itemize}
+\subsection{模型训练}
+\indent
+我们首先需要通过3D Gaussian Splatting生成checkpoint，然后再通过SuGaR将其转化为网格。所以首先需要运行：
+\begin{lstlisting}[language=bash]
+    python gaussian_splatting/train.py --dataset 
+    path/to/dataset --batch-size n --num-epochs 100 
+    -m <输出路径>
+\end{lstlisting}
+
+\indent
+上面运行的命令提示符与3D Gaussian Splatting中一样。在运行结束后退回到SuGaR文件夹，并运行：
+\begin{lstlisting}[language=bash]
+    python train.py -s <COLMAP 数据路径> 
+    -c <上一段命令提示符中的输出路径> 
+    -r <"density" or "sdf">
+\end{lstlisting}
+
+\subsection{实现原理}
+在谈论SuGar的实现原理之前，我们首先需要了解一下SuGaR想要达到的目的。3D Gaussian Splatting运行结束
+后的结果是比较离散的，而且3D Gaussian Splatting 为了表征不同视角的变化会有很多\textbf{各向异性}
+（anisotropic）\footnote{各向异性是指物体在不同方向上的性质不同，即物体在不同方向上的性质不同。}的小点
+来保证这些视角的变化，所以几何的精度会非常的差，实际表面相符不好。SuGaR的目的就是将这些凸出来的离散小点
+更加贴近实际的表面，也就是更加的平滑，从而提高几何的精度。如下图（图9-1）所示：
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{picture/31.png}
+    \caption{SuGaR示例}
+\end{figure}
+
+\indent
+
+
+
+
+
+
+
+
+
 
 \makespace
 \section{致谢}
@@ -1095,6 +1145,6 @@ Representing Scenes as Neural Radiance Fields for View Synthesis. In European Co
 Lowe, D. G. (1999). Object recognition from local scale-invariant features. International Journal of Computer Vision, 29(2), 91-110.\\\\
 Lowe, D. G. (2004). Distinctive image features from scale-invariant keypoints. International Journal of Computer Vision, 60(2), 91-110.\\\\
 Kerbl, B., Kopanas, G., Leimkühler, T., \& Drettakis, G. (2023). 3D Gaussian Splatting for Real-Time Radiance Field Rendering. ACM Transactions on Graphics, 42(4), Article 1. \\\\
-
+Guedon, A., \& Lepetit, V. (2024). SuGaR: Surface-Aligned Gaussian Splatting for Efficient 3D Mesh Reconstruction and High-Quality Mesh Rendering. In Proceedings of the IEEE/CVF Conference on Computer Vision and Pattern Recognition (CVPR) (pp. 5354-5363). \\\\
 \end{document}
 
