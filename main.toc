@@ -1,70 +1,95 @@
 \contentsline {section}{\numberline {第一章}总览}{1}{section.1}%
 \contentsline {subsection}{\numberline {1.1}全文预览}{1}{subsection.1.1}%
-\contentsline {section}{\numberline {第二章}实习目标}{2}{section.2}%
-\contentsline {subsection}{\numberline {2.1}学习方向及目标}{2}{subsection.2.1}%
-\contentsline {subsection}{\numberline {2.2}期望}{2}{subsection.2.2}%
-\contentsline {section}{\numberline {第三章}Yolo V5}{3}{section.3}%
-\contentsline {subsection}{\numberline {3.1}模型简介}{3}{subsection.3.1}%
-\contentsline {subsection}{\numberline {3.2}模型环境配置}{3}{subsection.3.2}%
-\contentsline {subsection}{\numberline {3.3}模型训练}{3}{subsection.3.3}%
-\contentsline {subsection}{\numberline {3.4}测试自己制作的数据集}{4}{subsection.3.4}%
-\contentsline {subsection}{\numberline {3.5}实现原理}{5}{subsection.3.5}%
-\contentsline {section}{\numberline {第四章}NeRF}{6}{section.4}%
-\contentsline {subsection}{\numberline {4.1}模型简介}{6}{subsection.4.1}%
-\contentsline {subsection}{\numberline {4.2}模型环境配置}{6}{subsection.4.2}%
-\contentsline {subsection}{\numberline {4.3}模型训练}{6}{subsection.4.3}%
-\contentsline {subsection}{\numberline {4.4}训练结果}{6}{subsection.4.4}%
-\contentsline {subsection}{\numberline {4.5}实现原理}{7}{subsection.4.5}%
-\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 4.5.1}NeRF的核心思想}{7}{subsubsection.4.5.1}%
-\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 4.5.2}输入模型前的准备}{7}{subsubsection.4.5.2}%
-\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 4.5.3}模型设计与输出}{8}{subsubsection.4.5.3}%
-\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 4.5.4}渲染（Rendering）}{10}{subsubsection.4.5.4}%
-\contentsline {section}{\numberline {第五章}NeRF Pytorch}{13}{section.5}%
-\contentsline {subsection}{\numberline {5.1}模型简介}{13}{subsection.5.1}%
-\contentsline {subsection}{\numberline {5.2}模型训练}{13}{subsection.5.2}%
-\contentsline {subsection}{\numberline {5.3}训练结果}{13}{subsection.5.3}%
-\contentsline {section}{\numberline {第六章}NeRF Studio}{14}{section.6}%
-\contentsline {subsection}{\numberline {6.1}模型简介}{14}{subsection.6.1}%
-\contentsline {subsection}{\numberline {6.2}模型环境配置}{14}{subsection.6.2}%
-\contentsline {subsection}{\numberline {6.3}预设数据训练}{15}{subsection.6.3}%
-\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 6.3.1}数据准备}{15}{subsubsection.6.3.1}%
-\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 6.3.2}训练输出}{15}{subsubsection.6.3.2}%
-\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 6.3.3}可视化}{15}{subsubsection.6.3.3}%
-\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 6.3.4}点云和mesh图的生成}{15}{subsubsection.6.3.4}%
-\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 6.3.5}渲染视频}{17}{subsubsection.6.3.5}%
-\contentsline {subsection}{\numberline {6.4}制作数据进行训练}{18}{subsection.6.4}%
-\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 6.4.1}数据准备}{18}{subsubsection.6.4.1}%
-\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 6.4.2}数据处理}{18}{subsubsection.6.4.2}%
-\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 6.4.3}数据训练和输出}{19}{subsubsection.6.4.3}%
-\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 6.4.4}自制数据训练结果}{19}{subsubsection.6.4.4}%
-\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 6.4.5}航拍数据训练结果}{20}{subsubsection.6.4.5}%
-\contentsline {section}{\numberline {第七章}Colmap}{22}{section.7}%
-\contentsline {subsection}{\numberline {7.1}Colmap简介}{22}{subsection.7.1}%
-\contentsline {subsection}{\numberline {7.2}Colmap下载}{22}{subsection.7.2}%
-\contentsline {subsection}{\numberline {7.3}通过视频或图片生成点云}{22}{subsection.7.3}%
-\contentsline {subsection}{\numberline {7.4}SIFT算法}{24}{subsection.7.4}%
-\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 7.4.1}SIFT算法简介}{24}{subsubsection.7.4.1}%
-\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 7.4.2}背景与历史}{24}{subsubsection.7.4.2}%
-\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 7.4.3}SIFT算法原理}{25}{subsubsection.7.4.3}%
-\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 7.4.4}SIFT算法在Colmap中的应用}{29}{subsubsection.7.4.4}%
-\contentsline {subsection}{\numberline {7.5}SFM}{30}{subsection.7.5}%
-\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 7.5.1}SFM简介}{30}{subsubsection.7.5.1}%
-\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 7.5.2}SFM算法原理}{30}{subsubsection.7.5.2}%
-\contentsline {subsection}{\numberline {7.6}MVS}{31}{subsection.7.6}%
-\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 7.6.1}MVS简介}{31}{subsubsection.7.6.1}%
-\contentsline {section}{\numberline {第八章}Gaussian Splatting}{32}{section.8}%
-\contentsline {subsection}{\numberline {8.1}Gaussian Splatting简介}{32}{subsection.8.1}%
-\contentsline {subsection}{\numberline {8.2}模型环境配置}{32}{subsection.8.2}%
-\contentsline {subsection}{\numberline {8.3}模型训练}{32}{subsection.8.3}%
-\contentsline {subsection}{\numberline {8.4}实现原理}{33}{subsection.8.4}%
-\contentsline {subsection}{\numberline {8.5}预备过程到训练开始之前}{33}{subsection.8.5}%
-\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 8.5.1}训练过程}{36}{subsubsection.8.5.1}%
-\contentsline {subsection}{\numberline {8.6}3D Gaussian Splatting和NeRF的比较}{40}{subsection.8.6}%
-\contentsline {section}{\numberline {第九章}SuGaR}{41}{section.9}%
-\contentsline {subsection}{\numberline {9.1}SuGaR简介}{41}{subsection.9.1}%
-\contentsline {subsection}{\numberline {9.2}模型环境配置}{41}{subsection.9.2}%
-\contentsline {subsection}{\numberline {9.3}模型训练}{42}{subsection.9.3}%
-\contentsline {subsection}{\numberline {9.4}实现原理}{42}{subsection.9.4}%
-\contentsline {section}{\numberline {第十章}致谢}{43}{section.10}%
-\contentsline {section}{文 \, 献}{44}{section.10}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 1.1.1}第二章 实习目标}{1}{subsubsection.1.1.1}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 1.1.2}第三章 Yolo V5}{1}{subsubsection.1.1.2}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 1.1.3}第四章 NeRF}{1}{subsubsection.1.1.3}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 1.1.4}第五章 NeRF Pytorch}{1}{subsubsection.1.1.4}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 1.1.5}第六章 NeRF Studio}{1}{subsubsection.1.1.5}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 1.1.6}第七章 Colmap}{1}{subsubsection.1.1.6}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 1.1.7}第八章 3D Gaussian Splatting}{1}{subsubsection.1.1.7}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 1.1.8}第九章 SuGaR}{2}{subsubsection.1.1.8}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 1.1.9}第十章 NeuS}{2}{subsubsection.1.1.9}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 1.1.10}第十一章 总结与展望}{2}{subsubsection.1.1.10}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 1.1.11}致谢}{2}{subsubsection.1.1.11}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 1.1.12}文献}{2}{subsubsection.1.1.12}%
+\contentsline {section}{\numberline {第二章}实习目标}{3}{section.2}%
+\contentsline {subsection}{\numberline {2.1}学习方向及目标}{3}{subsection.2.1}%
+\contentsline {subsection}{\numberline {2.2}期望}{3}{subsection.2.2}%
+\contentsline {section}{\numberline {第三章}Yolo V5}{4}{section.3}%
+\contentsline {subsection}{\numberline {3.1}模型简介}{4}{subsection.3.1}%
+\contentsline {subsection}{\numberline {3.2}模型环境配置}{4}{subsection.3.2}%
+\contentsline {subsection}{\numberline {3.3}模型训练}{4}{subsection.3.3}%
+\contentsline {subsection}{\numberline {3.4}测试自己制作的数据集}{5}{subsection.3.4}%
+\contentsline {subsection}{\numberline {3.5}实现原理}{6}{subsection.3.5}%
+\contentsline {section}{\numberline {第四章}NeRF}{7}{section.4}%
+\contentsline {subsection}{\numberline {4.1}模型简介}{7}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}模型环境配置}{7}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}模型训练}{7}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}训练结果}{7}{subsection.4.4}%
+\contentsline {subsection}{\numberline {4.5}实现原理}{8}{subsection.4.5}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 4.5.1}NeRF的核心思想}{8}{subsubsection.4.5.1}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 4.5.2}输入模型前的准备}{8}{subsubsection.4.5.2}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 4.5.3}模型设计与输出}{9}{subsubsection.4.5.3}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 4.5.4}渲染（Rendering）}{11}{subsubsection.4.5.4}%
+\contentsline {section}{\numberline {第五章}NeRF Pytorch}{14}{section.5}%
+\contentsline {subsection}{\numberline {5.1}模型简介}{14}{subsection.5.1}%
+\contentsline {subsection}{\numberline {5.2}模型训练}{14}{subsection.5.2}%
+\contentsline {subsection}{\numberline {5.3}训练结果}{14}{subsection.5.3}%
+\contentsline {section}{\numberline {第六章}NeRF Studio}{15}{section.6}%
+\contentsline {subsection}{\numberline {6.1}模型简介}{15}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}模型环境配置}{15}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}预设数据训练}{16}{subsection.6.3}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 6.3.1}数据准备}{16}{subsubsection.6.3.1}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 6.3.2}训练输出}{16}{subsubsection.6.3.2}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 6.3.3}可视化}{16}{subsubsection.6.3.3}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 6.3.4}点云和mesh图的生成}{16}{subsubsection.6.3.4}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 6.3.5}渲染视频}{18}{subsubsection.6.3.5}%
+\contentsline {subsection}{\numberline {6.4}制作数据进行训练}{19}{subsection.6.4}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 6.4.1}数据准备}{19}{subsubsection.6.4.1}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 6.4.2}数据处理}{19}{subsubsection.6.4.2}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 6.4.3}数据训练和输出}{20}{subsubsection.6.4.3}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 6.4.4}自制数据训练结果}{20}{subsubsection.6.4.4}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 6.4.5}航拍数据训练结果}{21}{subsubsection.6.4.5}%
+\contentsline {section}{\numberline {第七章}Colmap}{23}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Colmap简介}{23}{subsection.7.1}%
+\contentsline {subsection}{\numberline {7.2}Colmap下载}{23}{subsection.7.2}%
+\contentsline {subsection}{\numberline {7.3}通过视频或图片生成点云}{23}{subsection.7.3}%
+\contentsline {subsection}{\numberline {7.4}SIFT算法}{25}{subsection.7.4}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 7.4.1}SIFT算法简介}{25}{subsubsection.7.4.1}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 7.4.2}背景与历史}{25}{subsubsection.7.4.2}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 7.4.3}SIFT算法原理}{26}{subsubsection.7.4.3}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 7.4.4}SIFT算法在Colmap中的应用}{30}{subsubsection.7.4.4}%
+\contentsline {subsection}{\numberline {7.5}SFM}{31}{subsection.7.5}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 7.5.1}SFM简介}{31}{subsubsection.7.5.1}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 7.5.2}SFM算法原理}{31}{subsubsection.7.5.2}%
+\contentsline {subsection}{\numberline {7.6}MVS}{32}{subsection.7.6}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 7.6.1}MVS简介}{32}{subsubsection.7.6.1}%
+\contentsline {section}{\numberline {第八章}Gaussian Splatting}{33}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Gaussian Splatting简介}{33}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}模型环境配置}{33}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}模型训练}{33}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}实现原理}{34}{subsection.8.4}%
+\contentsline {subsection}{\numberline {8.5}预备过程到训练开始之前}{34}{subsection.8.5}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 8.5.1}训练过程}{37}{subsubsection.8.5.1}%
+\contentsline {subsection}{\numberline {8.6}3D Gaussian Splatting和NeRF的比较}{41}{subsection.8.6}%
+\contentsline {section}{\numberline {第九章}SuGaR}{42}{section.9}%
+\contentsline {subsection}{\numberline {9.1}SuGaR简介}{42}{subsection.9.1}%
+\contentsline {subsection}{\numberline {9.2}模型环境配置}{42}{subsection.9.2}%
+\contentsline {subsection}{\numberline {9.3}模型训练}{43}{subsection.9.3}%
+\contentsline {subsection}{\numberline {9.4}实现原理}{43}{subsection.9.4}%
+\contentsline {subsection}{\numberline {9.5}训练效果}{46}{subsection.9.5}%
+\contentsline {section}{\numberline {第十章}NeuS}{47}{section.10}%
+\contentsline {subsection}{\numberline {10.1}NeuS简介}{47}{subsection.10.1}%
+\contentsline {subsection}{\numberline {10.2}模型环境配置}{47}{subsection.10.2}%
+\contentsline {subsection}{\numberline {10.3}模型训练}{48}{subsection.10.3}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 10.3.1}NeuS的一些问题}{48}{subsubsection.10.3.1}%
+\contentsline {subsection}{\numberline {10.4}数据准备}{48}{subsection.10.4}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 10.4.1}训练过程}{48}{subsubsection.10.4.1}%
+\contentsline {subsection}{\numberline {10.5}实现原理}{49}{subsection.10.5}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 10.5.1}表面表示}{49}{subsubsection.10.5.1}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 10.5.2}体积渲染方案}{49}{subsubsection.10.5.2}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 10.5.3}权重函数要求}{49}{subsubsection.10.5.3}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 10.5.4}训练过程}{49}{subsubsection.10.5.4}%
+\contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 10.5.5}分层采样策略}{50}{subsubsection.10.5.5}%
+\contentsline {section}{\numberline {第十一章}总结与展望}{51}{section.11}%
 \contentsfinish 
