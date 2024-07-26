@@ -92,4 +92,6 @@
 \contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 10.5.4}训练过程}{49}{subsubsection.10.5.4}%
 \contentsline {subsubsection}{\numberline {\fontsize {12.0450pt}{1.25}\selectfont 10.5.5}分层采样策略}{50}{subsubsection.10.5.5}%
 \contentsline {section}{\numberline {第十一章}总结与展望}{51}{section.11}%
+\contentsline {subsection}{\numberline {11.1}总结}{51}{subsection.11.1}%
+\contentsline {subsection}{\numberline {11.2}未来展望}{51}{subsection.11.2}%
 \contentsfinish 
